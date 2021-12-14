@@ -1,0 +1,16 @@
+[
+    {
+        "name" : "Hard Disk",
+        "price": "10000",
+        "description":" A very very good working harddisk with 1000 TB of space",
+        "ratings": "5",
+        "image":[{
+
+        }],
+        "category": "Electronics",
+        "seller": "Ebay",
+        "stock": 50,
+        "numofReviews": 30,
+        "reviews": []
+    }
+]
