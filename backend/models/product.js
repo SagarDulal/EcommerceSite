@@ -41,7 +41,7 @@ category:{
         values: [
             'Electronics',
             'Cameras',
-            'Laptop',
+            'Laptops',
             'Accessories',
             'Headphones',
             'Food',

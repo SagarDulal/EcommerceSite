@@ -12,5 +12,34 @@
         "stock": 50,
         "numofReviews": 30,
         "reviews": []
+    },
+    {
+        "name" : "Scan Disk",
+        "price": "10000",
+        "description":" A scan disk which is a garbage",
+        "ratings": "5",
+        "image":[{
+
+        }],
+        "category": "Electronics",
+        "seller": "Ebay",
+        "stock": 50,
+        "numofReviews": 30,
+        "reviews": []
+    },
+    
+    {
+        "name" : "Xbox is a garbage",
+        "price": "10000",
+        "description":" Xbox is a very popoular disc",
+        "ratings": "5",
+        "image":[{
+
+        }],
+        "category": "Electronics",
+        "seller": "Ebay",
+        "stock": 50,
+        "numofReviews": 30,
+        "reviews": []
     }
 ]
