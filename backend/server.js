@@ -1,8 +1,14 @@
 const app = require('./app')
 const connectDB = require('./config/database')
-
-
 const dotenv = require('dotenv')
+
+
+// Handle the uncaught exceptions 
+process.on('uncaughtException', err =>{ 
+    console.log(`Error: ${err.message}`);
+console.log("Shutting down due to uncaught exception");
+process.exit(1)
+})
 
 // Setting up the config file
 
