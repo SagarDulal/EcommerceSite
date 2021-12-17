@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-
+const bcrypt = require('bcryptjs')
 const userSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -22,11 +22,10 @@ const userSchema = new mongoose.Schema({
     avatar:{
         public_id:{
             type: String,
-            required: true
+    
         },
         url:{
             type: String,
-            required: true
         },
         role:{
             type: String,
@@ -39,8 +38,14 @@ const userSchema = new mongoose.Schema({
     },
     resetPassword: String,
     resetPasswordExpire : Date
+})
 
-
+// Encrypting password before saving changes
+userSchema.pre('save', async function(next){
+    if(!this.isModified('password')) {
+        next()
+    }
+    this.password = await bcrypt.hash(this.password,8)
 })
 
 module.exports = mongoose.model('User', userSchema);
