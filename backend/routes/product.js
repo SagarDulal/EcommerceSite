@@ -18,12 +18,12 @@ router.route('/product/:id').get(getSingleProduct)
 
 
 // Posting new products as well as updating by the admin
-router.route('/admin/products/new').post(newProduct)
+router.route('/admin/products/new').post(isAuthenticatedUser,newProduct)
 
 
 
 // Updating and delete of the products
-router.route('/admin/product/:id').put(updateProduct).delete(deleteProduct)
+router.route('/admin/product/:id').put(isAuthenticatedUser,updateProduct).delete(isAuthenticatedUser,deleteProduct)
 
 
 
