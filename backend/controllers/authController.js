@@ -1,7 +1,7 @@
 const User = require('../models/user')
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors')
-
+const sendToken = require('../utils/jwtToken')
 
 // Register a user => /api/v1/ registered users
 exports.registerUser = catchAsyncErrors(async(req,res)=>{
@@ -15,11 +15,7 @@ exports.registerUser = catchAsyncErrors(async(req,res)=>{
             url:''
         }
     })
-    const token = user.getJWtToken();
-    res.status(201).json({
-        success: true,
-        token
-     })
+    sendToken(user,200,res);
 })
 
 // Login User => /api/v1/login
@@ -42,10 +38,6 @@ exports.loginUser = catchAsyncErrors (async(req,res, next)=>{
     if(!isPasswordMatched) {
         return next(new ErrorHandler("Password doesnot matches",401));
     }
-    const token = user.getJWtToken();
-    res.status(200).json({
-        success: true,
-        token
-    })
+    sendToken(user, 200, res)
 
 })
