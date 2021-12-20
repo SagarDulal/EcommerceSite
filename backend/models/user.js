@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:[true, "Please enter your password"],
         minLength:[6,"Please enter at least 6 characters"],
-        select:false
+        select:false   // Does not shows the password field
     },
     avatar:{
         public_id:{
@@ -27,18 +27,18 @@ const userSchema = new mongoose.Schema({
         },
         url:{
             type: String,
-        },
-        role:{
-            type: String,
-            default: 'user'
-        },
-        createdAt:{
-            type: Date,
-            default: Date.now
         }
     },
-    resetPassword: String,
-    resetPasswordExpire : Date
+    role:{
+        type: String,
+        default: 'user'
+},
+    createdAt:{
+        type: Date,
+        default: Date.now
+},
+resetPassword: String,
+resetPasswordExpire : Date
 })
 
 // Encrypting password before saving changes
